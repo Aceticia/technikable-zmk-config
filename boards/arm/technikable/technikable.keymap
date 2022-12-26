@@ -17,6 +17,17 @@
 #define RAISE_L 2
 
 / {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "homerow mods";
+            #binding-cells = <2>;
+            tapping_term_ms = <150>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -24,7 +35,7 @@
             label = "Base";
             bindings = <
  &kp TILDE  &kp Q      &kp W      &kp E       &kp R          &kp T          &kp Y            &kp U          &kp I       &kp O      &kp P         &kp PIPE
- &kp SQT    &kp A      &kp S      &kp D       &kp F          &kp G          &kp H            &kp J          &kp K       &kp L      &kp SEMI      &kp MINUS
+ &kp SQT    &hm LALT A &hm LGUI S &hm LSHFT D &hm LCTRL F    &kp G          &kp H            &kp H 	&hm LCTRL J    &hm LSHFT K &hm LGUI L &hm LALT SEMI      &kp MINUS
  &kp ESC    &kp Z      &kp X      &kp C       &kp V          &kp B          &kp N            &kp M          &kp COMMA   &kp DOT    &kp FSLH      &kp EQUAL
                        &mo LOWER_L  &kp TAB     &kp SPACE      &kp LBKT       &kp RBKT       &kp ENTER          &kp BACKSPACE  &mo RAISE_L
             >;
